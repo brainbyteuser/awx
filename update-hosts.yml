@@ -1,13 +1,8 @@
 ---
-  - name: host file update - Local DNS setup across all the servers
+  - name: host file update
     hosts: localhost
     gather_facts: yes
     tasks:
     - name: Add IP address of all hosts to all hosts
-      lineinfile:
-        dest: /etc/hosts
-        regexp: '.*{{ item }}$'
-        line: "{{ hostvars[item].ansible_host }} {{item}}"
-        state: present
-      when: hostvars[item].ansible_host is defined
-      with_items: "{{ groups.all }}"
+      lineinfile: dest='/etc/hosts' regexp='.*{{ item.name }}$' line='{{ item.name }} {{ item.address }}' state=present
+      with_items: "{{ names }}"
