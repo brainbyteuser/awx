@@ -5,4 +5,5 @@
     tasks:
     - name: Add IP address of all hosts to all hosts
       lineinfile: dest='/etc/hosts' regexp='.*{{ item.name }}$' line='{{ item.name }} {{ item.address }}' state=present
+      become: yes
       with_items: "{{ names }}"
