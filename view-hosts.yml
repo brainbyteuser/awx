@@ -1,0 +1,12 @@
+---
+-
+  name: Display content of hosts
+  hosts: localhost
+  tasks:
+    - name: Display hosts contents
+      command: cat hosts chdir=/etc
+      register: command_output
+
+    - name: Print to console
+      debug:
+        msg: "{{command_output.stdout}}"
