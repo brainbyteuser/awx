@@ -1,7 +1,7 @@
 ---
 -
   name: Display content of hosts
-  hosts: localhost
+  hosts: [multi]
   tasks:
     - name: Display hosts contents
       command: cat hosts chdir=/etc
