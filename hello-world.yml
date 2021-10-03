@@ -6,4 +6,4 @@
         msg: "Hello World!"
     - name: Display Secret
       debug:
-        msg: {{ secret_data }}
+        msg: "{{ secret_data }}"
