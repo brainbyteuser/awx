@@ -4,3 +4,6 @@
     - name: Hello Message
       debug:
         msg: "Hello World!"
+    - name: Display Secret
+      debug:
+        msg: {{ secret_data }}
